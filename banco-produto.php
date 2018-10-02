@@ -2,7 +2,7 @@
 
 function listaProdutos($conexao) {
     $produtos = array();
-    $resultado = mysqli_query($conexao, "select p.*, c.nome as categoria_nome from produtos as p join categorias as c on p.categoria_id = c.id");
+    $resultado = mysqli_query($conexao, "select p.*, c.nome as categoria_nome from produtos as p join categorias as c on p.categoria_id = c.id") or die('Conexão falhou. erro '.mysqli_connection_error());
 
     while($produto = mysqli_fetch_assoc($resultado)) {
         array_push($produtos, $produto);

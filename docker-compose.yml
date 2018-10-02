@@ -1,0 +1,16 @@
+php:
+ build: .
+ ports:
+  - "80:80"
+  - "443:443"
+ volumes:
+  - /opt/loja:/var/www/html
+ links:
+  - db
+db:
+ image: myaql:5.7
+ volumes:
+  - /var/lib/mysql
+ environment:
+  - MYSQL_ROOT_PASSWORD=12345678
+  - MYSQL_DATABASE=loja
