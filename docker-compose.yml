@@ -8,7 +8,7 @@ php:
  links:
   - db
 db:
- image: myaql:5.7
+ image: mysql:5.7
  volumes:
   - /var/lib/mysql
  command: --init-file ./sql/init.sql 
